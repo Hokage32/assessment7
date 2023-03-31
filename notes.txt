@@ -1,0 +1,21 @@
+The extraLargeArray is ran in both doublerAppend and doublerInsert, but doublerInsert takes significantly longer than doublerAppend because of the .unshift method. The .unshift method will try to put the selected value at the front of the array while pushing all of the other values in the array back 1 (hence the term shift).
+
+As the array becomes smaller, the roles change. doublerAppend becomes slower than doublerInsert because it takes less time to shift down.
+
+Timing Results:
+
+tinyArray : insert 14.416 μs
+            append 93.625 μs
+
+smallArray: insert 25.292 μs
+            append 127.958 μs
+
+mediumArray: insert 138.75 μs
+             append 162.208 μs
+
+largeArray: insert 7.578667 ms
+            append 491.583 μs
+
+extraLargeArray: insert 776.303625 ms
+                 append 1.762708 ms
+
